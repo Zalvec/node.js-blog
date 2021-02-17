@@ -3,11 +3,13 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogRoutes.js')
 
+const { db_URI } = require('./config');
+
 //express app
 const app = express()
 
 //connect to mongodb
-const dbURI = 'mongodb+srv://netninja:HiddenPass123@nodetuts.eytfg.mongodb.net/node-tuts?retryWrites=true&w=majority'
+const dbURI = db_URI
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then( (result) => {
         //listen for requests
